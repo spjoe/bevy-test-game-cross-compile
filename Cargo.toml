@@ -1,0 +1,16 @@
+[package]
+name = "bevy-example"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bevy = "0.6"
+
+
+[target.x86_64-apple-darwin]
+linker = "x86_64-apple-darwin14-clang"
+ar = "x86_64-apple-darwin14-ar"
+
+# PATH="/home/camillo/workspace/macOS/osxcross/target/bin:$PATH" cargo build --target x86_64-apple-darwin
