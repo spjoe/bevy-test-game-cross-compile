@@ -18,11 +18,11 @@ stages:
 
 install-macos-job:       # This job runs in the install stage, which runs first.
   stage: build
+  image: rust:latest
   variables:
     TARGET: 'x86_64-apple-darwin'
   script:
     - set -e
-    - rustup self update
     - ./ci/install.sh
     - source ~/.cargo/env || true
     - ./ci/script.sh

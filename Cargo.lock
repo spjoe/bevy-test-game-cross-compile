@@ -194,7 +194,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "bevy-example"
+name = "bevy-cross-compile-example"
 version = "0.1.0"
 dependencies = [
  "bevy",

@@ -1,5 +1,5 @@
 [package]
-name = "bevy-example"
+name = "bevy-cross-compile-example"
 version = "0.1.0"
 edition = "2021"
 
@@ -9,8 +9,8 @@ edition = "2021"
 bevy = "0.6"
 
 
-[target.x86_64-apple-darwin]
-linker = "x86_64-apple-darwin14-clang"
-ar = "x86_64-apple-darwin14-ar"
+# build for macOS does still not work!
+# CC=o64-clang CXX=o64-clang++ LIBZ_SYS_STATIC=1 PATH="/home/camillo/workspace/macOS/osxcross/target/bin:$PATH" cargo build --target x86_64-apple-darwin --release
 
-# PATH="/home/camillo/workspace/macOS/osxcross/target/bin:$PATH" cargo build --target x86_64-apple-darwin
+# build for windows
+# cargo build --target=x86_64-pc-windows-gnu --release
