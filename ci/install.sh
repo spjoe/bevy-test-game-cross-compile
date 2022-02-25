@@ -10,6 +10,7 @@ main() {
         target=x86_64-apple-darwin
         sort=gsort  # for `sort --sort-version`, from brew's coreutils.
         curl https://sh.rustup.rs -sSf | sh -s -- -y
+        source $HOME/.cargo/env
         rustc --version
     fi
 
