@@ -21,10 +21,11 @@ jobs:
       - run: "source ~/.cargo/env || true"
       - run: "./ci/script.sh"
       - run: "pwd"
-      - run: "ls target"
-      - run: "ls target/release"
-      - run: "ls target/x86_64-apple-darwin"
-      - run: "ls target/x86_64-apple-darwin/release"
+      - run: "ls"
+      - run: "ls target || true"
+      - run: "ls target/release || true"
+      - run: "ls target/x86_64-apple-darwin || true"
+      - run: "ls target/x86_64-apple-darwin/release || true"
       - run: "set +e"
 
 # Invoke jobs via workflows
