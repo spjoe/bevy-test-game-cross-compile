@@ -14,9 +14,12 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - checkout
-      - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
+      - run: "set -e"
+      - run: "set TARGET=x86_64-apple-darwin"
+      - run: "./ci/install.sh"
+      - run: "source ~/.cargo/env || true"
+      - run: "./ci/script.sh"
+      - run: "set +e"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
