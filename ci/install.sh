@@ -10,7 +10,7 @@ main() {
         target=x86_64-apple-darwin
         sort=gsort  # for `sort --sort-version`, from brew's coreutils.
         curl https://sh.rustup.rs -sSf | sh -s -- -y
-        rustup-init
+        rustc --version
     fi
 
     # Builds for iOS are done on OSX, but require the specific target to be
