@@ -5,17 +5,18 @@ version: 2.1
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  say-hello:
+  build-macos:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     macos:
       xcode: 12.5.1
+    environment:
+      TARGET: x86_64-apple-darwin
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - checkout
       - run: "set -e"
-      - run: "set TARGET=x86_64-apple-darwin"
       - run: "./ci/install.sh"
       - run: "source ~/.cargo/env || true"
       - run: "./ci/script.sh"
@@ -26,4 +27,4 @@ jobs:
 workflows:
   say-hello-workflow:
     jobs:
-      - say-hello
+      - build-macos
