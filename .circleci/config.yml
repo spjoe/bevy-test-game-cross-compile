@@ -25,8 +25,12 @@ jobs:
       - run: "ls target || true"
       - run: "ls target/release || true"
       - run: "ls target/x86_64-apple-darwin || true"
-      - run: "ls target/x86_64-apple-darwin/release || true"
+      - run: "ls -lah target/x86_64-apple-darwin/release || true"
+      - run: "ls target/x86_64-apple-darwin/release/bevy-cross-compile-example.d || true"
+      - run: "tar cf bevy-cross-compile-example.tar target/x86_64-apple-darwin/release/bevy-cross-compile-example target/x86_64-apple-darwin/release/bevy-cross-compile-example.d"
       - run: "set +e"
+      - store_artifacts:
+            path: bevy-cross-compile-example.tar
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
