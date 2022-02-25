@@ -2,6 +2,4 @@
 
 set -ex
 
-main() {
-    cross build --target $TARGET --release
-}
+cross build --target $TARGET --release
