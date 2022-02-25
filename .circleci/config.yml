@@ -6,6 +6,7 @@ version: 2.1
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
   build-macos:
+    working_directory: /tmp
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     macos:
@@ -20,7 +21,13 @@ jobs:
       - run: "./ci/install.sh"
       - run: "source ~/.cargo/env || true"
       - run: "./ci/script.sh"
+      - run: "ls target"
+      - run: "ls target/release"
+      - run: "ls target/x86_64-apple-darwin"
+      - run: "ls target/x86_64-apple-darwin/release"
       - run: "set +e"
+    store_artifacts:
+        path: /tmp/artifacts
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
