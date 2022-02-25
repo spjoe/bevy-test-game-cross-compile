@@ -9,7 +9,7 @@ main() {
     else
         target=x86_64-apple-darwin
         sort=gsort  # for `sort --sort-version`, from brew's coreutils.
-        brew install rustup
+        NONINTERACTIVE=1 brew install rustup
         rustup-init
     fi
 
