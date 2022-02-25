@@ -2,8 +2,8 @@ set -ex
 
 main() {
     local target=
-    local os_name = $(uname)
-    if [ "$uname" = "Linux" ]; then
+    local os_name=$(uname)
+    if [ "$os_name" = "Linux" ]; then
         target=x86_64-unknown-linux-musl
         sort=sort
     else
